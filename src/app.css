@@ -7,8 +7,9 @@ body {
 }
 
 body {
-  background-color: #595d64;
-  /* background-color: #ebe4e4; */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* #595D64 */
+  /* background-color: 89, 93, 100; */
 }
 
 header {
@@ -26,6 +27,17 @@ header {
   margin-top: 5rem;
 }
 
+.container-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 70vw; */
+  /* height: 70vh; */
+  margin-top: 20rem;
+  /* width: fit-content; */
+  /* margin: 0 auto; */
+}
+
 h1 {
   font-size: 1.5em;
   text-align: center;
@@ -34,13 +46,32 @@ h1 {
   padding: 1rem;
 }
 
-.container-pictures {
+.ul-container-pictures {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
-  gap: 0.8em;
+  /* gap: 0.8em; original*/
+  gap: 1em;
   padding: 0;
   margin: 2em;
+  /* border: 2px solid red; */
+}
+
+.ul-container-pictures-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.spin {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: spin 3000ms ease-out infinite;
+  /* border: 2px solid red; */
 }
 
 li {
@@ -57,13 +88,13 @@ li:hover {
 
 li:hover .li-data {
   visibility: visible;
-  /* animation: slide-in 500ms; 1000ms */
+  /* animation: slide-in 2000ms; */
 }
 
-li:last-child {
-  /* // There's no science in using "10" here. In all my testing, this delivered the best results. */
-  flex-grow: 10;
-}
+/* li:last-child { */
+/* // There's no science in using "10" here. In all my testing, this delivered the best results. */
+/* flex-grow: 10; */
+/* } */
 
 .li-img {
   max-height: 100%;
@@ -77,6 +108,7 @@ li:last-child {
 
 .li-img:hover {
   box-shadow: 1.6px 3.2px 3.2px hsl(0deg 0% 0% / 0.7);
+  cursor: pointer;
   /* filter: brightness(100%); */
 }
 
@@ -97,7 +129,7 @@ li:last-child {
 .li-title {
   color: black;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: "Caveat", cursive;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -116,44 +148,52 @@ li:last-child {
   text-align: center;
 }
 
-svg {
+.notLike {
+  position: absolute;
+  top: 5px;
+  right: 5px;
   width: 30px;
   height: 30px;
-  /* fill: red; */
+  cursor: pointer;
 }
 
-.uno {
-  fill: red;
+.cls-1 {
+  /* fill: #e54033; */
+  /* fill: rgba(254, 8, 8, 0.1); */
+  fill: rgba(255, 255, 255, 0.2);
 }
-.dos {
-  fill: royalblue;
+
+.cls-2 {
+  fill: white;
+  /* stroke: rojo; */
 }
+
+.like_cls-2 {
+  fill: rgb(254, 8, 8);
+}
+
+.notLike:hover .cls-2 {
+  /* scale: 200%; */
+  fill: rgb(254, 8, 8);
+}
+
 @keyframes slide-in {
   from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
-}
-
-/* @keyframes slide-in {
-  from {
-    transform: rotateY(180deg);
+    transform: rotateX(0deg);
   }
   to {
     transform: rotateX(360deg);
   }
-} */
+}
 
-/* @keyframes slide-in {
+@keyframes spin {
   from {
-    transform: translateX(-100%);
+    transform: scale(100%);
   }
   to {
-    transform: translateX(50%);
+    transform: scale(50%);
   }
-} */
+}
 
 /* // ADVANCED */
 

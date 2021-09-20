@@ -9,8 +9,13 @@ export const Modal = ({ isOpen, closeModal, title, date, url, children }) => {
   return (
     <div className={`modal ${isOpen && "modal-open"}`} onClick={closeModal}>
       <div className="modal__dialog" onClick={handleModalDialogClick}>
-        {/* <h1>{title}</h1> */}
-        <button onClick={closeModal}>X</button>
+        <button onClick={closeModal}>
+          <img
+            src="/assets/logout_90894.svg"
+            alt="logout"
+            className="svg_logout"
+          />
+        </button>
 
         <div className="container-img">
           <img className="modal-img" src={url} alt={title} loading="lazy" />
