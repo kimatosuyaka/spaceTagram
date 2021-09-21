@@ -23,10 +23,11 @@ export const Modal = ({ isOpen, closeModal, title, date, url, children }) => {
 
         <div className="modal-data">
           <span className="modal-data-text"> {title}</span>
+          <span className="modal-data-text hidden"> - </span>
           <span className="modal-data-text"> {date} </span>
         </div>
 
-        {children}
+        {/* {children} */}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import "./App.css";
 import "./app.css";
 
-import { Shows } from "./components/Shows";
+import { Gallery } from "./components/Gallery";
 import { useFetch } from "./hook/useFetch";
 
 function App() {
@@ -17,9 +17,16 @@ function App() {
   return (
     <>
       <header className="App-header">
-        <h1>SpaceTagram</h1>
+        <div className="container_header">
+          <div className="header_titulo">
+            <h1>SpaceTagram</h1>
+          </div>
+          <div className="header_date">
+            <p>FECHAS</p>
+          </div>
+        </div>
       </header>
-      <div className={loading ? "container-loading" : "container"}>
+      <div className={loading ? "container-loading" : "container-gallery"}>
         <ul
           className={
             loading ? "ul-container-pictures-loading" : "ul-container-pictures"
@@ -28,7 +35,7 @@ function App() {
           {loading ? (
             <img src="/assets/nasa_logo.svg" alt="nasa" className="spin" />
           ) : (
-            data.map((d) => <Shows key={d.date} datos={d} />)
+            data.map((d) => <Gallery key={d.date} datos={d} />)
           )}
         </ul>
       </div>

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import "../app.css";
 import useModal from "../hook/useModal";
 import { Modal } from "./Modal";
+import "../app.css";
 // import confetti from "https://cdn.skypack.dev/canvas-confetti";
 
 const initLike = () => {
   return JSON.parse(localStorage.getItem("todos")) || [];
 };
 
-export const Shows = ({ datos }) => {
+export const Gallery = ({ datos }) => {
   const [like, setlike] = useState(initLike);
   const { url, title, date } = datos;
   const [isOpenModal, openModal, closeModal] = useModal(false);
@@ -20,16 +20,6 @@ export const Shows = ({ datos }) => {
     // confetti();
   }, [like]);
 
-  // useEffect(() => {
-  //   const confettiSettings = { target: "my-canvas" };
-  //   const confetti = new ConfettiGenerator(confettiSettings);
-  //   confetti.render();
-
-  //   return () => confetti.clear();
-  // }, []);
-
-  // onClick = { openModal }; para img
-
   return (
     <>
       <li>
@@ -40,11 +30,12 @@ export const Shows = ({ datos }) => {
           loading="lazy"
           onClick={openModal}
         />
+
         <div className="li-data">
           <span className="li-title"> {title}</span>
           <span className="li-date"> {date} </span>
         </div>
-        {/* ❤️ */}
+
         <svg
           className="notLike"
           onClick={() => setlike(!like)}
@@ -53,9 +44,6 @@ export const Shows = ({ datos }) => {
           viewBox="0 0 512 512"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* <defs>
-            <style>.cls-1{fill:#e54033;}.cls-2{fill:#fff;}</style>
-          </defs> */}
           <g data-name="Heart Icon" id="Heart_Icon">
             <circle className="cls-1" cx="256" cy="256" r="256" />
             <path

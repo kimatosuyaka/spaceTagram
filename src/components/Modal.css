@@ -25,13 +25,13 @@
   justify-content: center;
   background: #eceef1;
   border-radius: 0.4em;
-  /* border: 2px solid red; */
   position: relative;
   /* width: 80vw; */
   height: 90vh;
   margin: 4rem;
   padding: 1em;
   box-shadow: 1.6px 3.2px 3.2px hsl(0deg 0% 0% / 0.45);
+  /* border: 2px solid red; */
 }
 
 /* .modal__dialog button:nth-child(1) {
@@ -43,17 +43,19 @@ button {
   border: 0;
   display: inline-block;
   position: absolute;
-  top: 8px;
+  top: 6px;
   right: 5px;
   text-align: center;
-  /* border: 2px solid red; */
   padding: 0;
   margin: 0;
+  background-color: transparent;
+  /* border: 2px solid red; */
 }
 
 .svg_logout {
   width: 20px;
   height: 15px;
+  /* margin-bottom: 4em; */
   /* border: 2px solid red; */
 }
 
@@ -63,13 +65,10 @@ button {
 }
 
 .container-img {
-  margin: 1em 0 1em 0;
+  margin: 1.3em 0 1em 0;
   text-align: center;
-  /* width: 80%; */
-  /* height: 80%; */
-  /* border: 2px solid red; */
   height: 80vh;
-  margin: 1em;
+  /* border: 2px solid red; */
 }
 
 .modal-img {
@@ -85,9 +84,10 @@ button {
 
 .modal-data {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-content: center;
   justify-content: center;
+  margin-bottom: 0.5em;
   /* border: 2px solid red; */
 }
 
@@ -95,9 +95,10 @@ button {
   text-align: center;
   color: black;
   font-weight: 100;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: "Caveat", cursive;
   /* border: 2px solid red; */
+  margin-left: 0.5em;
 }
 
 @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
@@ -106,5 +107,13 @@ button {
   }
   .modal__dialog {
     height: 70vh;
+  }
+
+  .modal-data {
+    flex-direction: column;
+  }
+
+  .hidden {
+    display: none;
   }
 }
