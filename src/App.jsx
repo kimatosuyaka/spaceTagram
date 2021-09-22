@@ -94,7 +94,7 @@ function App() {
           }
         >
           {loading ? (
-            <img src="./assetss/nasa_logo.svg" alt="nasa" className="spin" />
+            <img src="./assets/nasa_logo.svg" alt="nasa" className="spin" />
           ) : (
             data.map((d) => <Gallery key={d.date} datos={d} />)
           )}
