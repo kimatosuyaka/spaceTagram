@@ -19,7 +19,7 @@ export const Modal = ({
       <div className="modal__dialog" onClick={handleModalDialogClick}>
         <button onClick={closeModal}>
           <img
-            src="./assets/logout_90894.svg"
+            src="../svgs/logout_90894.svg"
             alt="logout"
             className="svg_logout"
           />
