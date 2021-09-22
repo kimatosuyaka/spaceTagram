@@ -9,10 +9,8 @@ export const useFetch = (url) => {
   });
 
   useEffect(() => {
-    console.log("montado");
     return () => {
       isMountedRef.current = false;
-      console.log("Desmontado");
     };
   }, []);
 
@@ -22,10 +20,6 @@ export const useFetch = (url) => {
     fetch(url)
       .then((resp) => resp.json())
       .then((data) => {
-        //se coloco un setTimer para la prueba del useRef
-        // setTimeout(()=>{
-        // }, 2000)
-
         if (isMountedRef.current) {
           setState({
             loading: false,
@@ -33,7 +27,6 @@ export const useFetch = (url) => {
             data,
           });
         } else {
-          console.log("Ya se desmonto");
         }
       });
   }, [url]);
