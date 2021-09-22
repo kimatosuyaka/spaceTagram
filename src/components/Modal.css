@@ -65,6 +65,7 @@ button {
 }
 
 .container-img {
+  position: relative;
   margin: 1.3em 0 1em 0;
   text-align: center;
   height: 80vh;
@@ -101,6 +102,32 @@ button {
   margin-left: 0.5em;
 }
 
+/*------------like----------------*/
+.modalLike {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.mcls-1 {
+  fill: rgba(255, 255, 255, 0.2);
+}
+
+.mcls-2 {
+  fill: white;
+}
+
+.mlike_cls-2 {
+  fill: rgb(254, 8, 8);
+}
+
+.modalLike:hover .cls-2 {
+  fill: rgba(254, 8, 8, 0.4);
+}
+
 @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
   .container-img {
     height: 60vh;
@@ -115,5 +142,15 @@ button {
 
   .hidden {
     display: none;
+  }
+
+  /* .modalLike {
+    top: 38px;
+  } */
+}
+
+@media (max-aspect-ratio: 1/1) and (max-width: 942px) {
+  .modalLike {
+    top: 38px;
   }
 }

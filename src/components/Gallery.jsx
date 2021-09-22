@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import useModal from "../hook/useModal";
 import { Modal } from "./Modal";
 import "../app.css";
-// import confetti from "https://cdn.skypack.dev/canvas-confetti";
-
-const initLike = () => {
-  return JSON.parse(localStorage.getItem("todos")) || [];
-};
 
 export const Gallery = ({ datos }) => {
-  const [like, setlike] = useState(initLike);
-  const { url, title, date } = datos;
   const [isOpenModal, openModal, closeModal] = useModal(false);
+  const { url, title, date } = datos;
 
-  console.log(`este like de ${title} es ${like}`);
+  const initLike = () => {
+    return JSON.parse(localStorage.getItem(`${date}`)) || false;
+  };
+
+  const [like, setlike] = useState(initLike);
 
   useEffect(() => {
-    localStorage.setItem("likes", JSON.stringify(like));
-    // confetti();
+    localStorage.setItem(`${date}`, JSON.stringify(like));
   }, [like]);
+
+  const modalLike = useCallback(() => {
+    setlike((l) => !l);
+  }, [setlike]);
 
   return (
     <>
@@ -37,7 +38,7 @@ export const Gallery = ({ datos }) => {
         </div>
 
         <svg
-          className="notLike"
+          className="withoutlike"
           onClick={() => setlike(!like)}
           data-name="Layer 1"
           id="Layer_1"
@@ -61,6 +62,8 @@ export const Gallery = ({ datos }) => {
         title={title}
         date={date}
         url={url}
+        like={like}
+        modalLike={modalLike}
       ></Modal>
     </>
   );
